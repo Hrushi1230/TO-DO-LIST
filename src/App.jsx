@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import TodoHeader from "./components/TodoHeader";
 import TodoInput from "./components/TodoInput";
+import TodoList from "./components/TodoList";
 
 const LOCAL_KEY="todos_stage_demo";
 
 export default function App(){
+    
 const [todos,setTodos]= useState(()=>{
     try{
         const raw=localStorage.getItem(LOCAL_KEY);
@@ -41,6 +43,9 @@ const [todos,setTodos]= useState(()=>{
             />
             <section aria-label="Add todo section" style={{marginTop:16}}>
                 <TodoInput onAdd={addTodo}/>
+            </section>
+            <section aria-label="Todo list section" style={{marginTop:18}}>
+               <TodoList todos={todos}/>
             </section>
            
          </div>

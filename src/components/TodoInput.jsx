@@ -8,13 +8,13 @@ export default function TodoInput({onAdd}){
         inputRef.current?.focus();
     },[]);
     const handelSubmit =(e)=>{
-      e.preventDeafult();
+      e.preventDefault();
       const text=value.trim();
-      console.log(text);
       if(!text) return;
       onAdd(text);
       setValue("");
       inputRef.current?.focus();
+      console.log(text)
     }
 
 
@@ -36,5 +36,5 @@ export default function TodoInput({onAdd}){
                 Add
             </button>
         </form>
-    )
+    );
 }
